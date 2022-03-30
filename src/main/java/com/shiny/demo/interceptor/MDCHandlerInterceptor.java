@@ -22,7 +22,7 @@ public class MDCHandlerInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String traceId = request.getHeader(COMMON_HEADER_TRACE_ID);
-        if (StringUtils.hasText(traceId)) {
+        if (!StringUtils.hasText(traceId)) {
             traceId = UUID.randomUUID().toString();
         }
         response.addHeader(COMMON_HEADER_TRACE_ID, traceId);
