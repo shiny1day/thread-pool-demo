@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [REQUEST_ID:%X{traceId}] [%thread] %-5level %logger{60} -%msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <!--包 -->
+    <logger name="org.shiny.demo.controller" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+
